@@ -103,13 +103,13 @@ class Gameboard {
         let w = this.width / this.size;
         let h = this.height / this.size;
 
-        if (!this.food)
+        if (!this.food) {
             this.food = new Food(x, y, w, h, this.drawingContext);
+            this.gameObjects.push(this.food);
+        }
 
         this.food.position.x = x;
         this.food.position.y = y;
-
-        this.gameObjects.push(this.food);
     }
 
     drawCells = () => {
@@ -162,8 +162,8 @@ class Gameboard {
     checkSnakeHitFood = () => {
         if (this.snake.head.position.x == this.food.position.x &&
             this.snake.head.position.y == this.food.position.y) {
-                this.generateFood();
-                this.snake.eat();
+            this.generateFood();
+            this.snake.eat();
         }
     }
 
