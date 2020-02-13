@@ -60,25 +60,13 @@ class Gameboard {
 
     draw = () => {
         this.clearScreen();
-
         for (let x = 0; x < this.gameObjects.length; x++) this.gameObjects[x].draw();
-        // //FPS
-        // this.lastDrawtime = moment().unix();
-        // this.drawFPS();
     }
 
     update = () => {
         for (let x = 0; x < this.gameObjects.length; x++) this.gameObjects[x].update();
         this.checkBoundaries();
         this.checkSnakeHitFood();
-        // //FPS
-        // let currentTimestamp = moment().unix();
-        // if (this.lastDrawtime == currentTimestamp) {
-        //     this.currentFPS++;
-        // }
-        // else if (currentTimestamp > this.lastDrawtime) {
-        //     this.currentFPS = 0;
-        // }
     }
 
     generateCells = () => {
